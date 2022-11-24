@@ -86,7 +86,7 @@ LOGGING = {
                       '%(thread)d %(message)s'
         },
         'simple': {
-            'format': '%(message)s',
+            'format': '%(asctime)s %(levelname)s %(message)s',
         },
     },
     'filters': {
@@ -104,6 +104,12 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+           'filename': '/mnt/volumes/statics/geokincia.log',
+           'formatter': 'simple'
         }
     },
     "loggers": {
@@ -123,6 +129,9 @@ LOGGING = {
             "handlers": ["console"], "level": "DEBUG", },
         "geonode_logstash.logstash": {
             "handlers": ["console"], "level": "DEBUG", },
+        "geonode.geokincia": {
+            "handlers": ["file"], "level": "DEBUG"
+        }
     },
 }
 

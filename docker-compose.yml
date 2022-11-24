@@ -14,6 +14,7 @@ x-common-django:
     - backup-restore:/backup_restore
     - data:/data
     - tmp:/tmp
+    - ${PWD}/workdir:/mnt/volumes/statics/workdir
   depends_on:
     db:
       condition: service_healthy
